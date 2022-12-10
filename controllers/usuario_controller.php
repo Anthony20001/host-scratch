@@ -271,5 +271,28 @@
             //require_once("views/usuario/ver_menu.php");
             require_once("views/template/footer.php");
         }
+
+        # Inicia parte de irvin
+
+        public static function mostrar_usuario()
+        {
+            /*if (!isset($_SESSION["id_usuario"])) {
+                header("location:" . "index.php?c=" . seg::codificar("principal") . "&m=" . seg::codificar("mensaje") . "&msg=Notiene acceso a esta pantalla, debe acceder para continuar");
+                exit();
+            }*/
+            if (isset($_GET["msg"])) $msg=$_GET["msg"];
+    
+            $obj = new usuario_model();
+            $obj->setId(["_id"]);
+            $resultado = $obj->listar_usuario();
+    
+            require_once("views/template/header.php");
+            require_once("views/template/navbar.php");
+            require_once("views/verdatos/verusuarios.php");
+            require_once("views/template/footer.php");
+            
+        }
+
+        # Termina parte de Irvin
     }
 ?>

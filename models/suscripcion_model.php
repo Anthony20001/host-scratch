@@ -26,6 +26,22 @@
             }
         }
 
+        # Inicio de la parte de Irvin
+
+        public function listar_suscripcion()
+        {
+            $conexion = bd::connection();
+            $coleccion = $conexion->suscripcion;
+            $resultado = $coleccion->find(["_id" => new MongoDB\BSON\ObjectId($this->id)]);
+
+            foreach ($resultado as $r) {
+                return $r;
+            }
+            return [];
+        }
+
+        #Final de la parte de Irvin
+
         public function getId()
         {
             return $this->id;
