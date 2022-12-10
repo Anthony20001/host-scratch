@@ -120,32 +120,43 @@
     </div>
 <?php } else { ?>
     <?php if ($_SESSION["monto_pago"] == 0) { ?>
-        <div class="cover_1 overlay bg-slant-white bg-light">
+        <div class="section bg-white" data-aos="fade-up">
             <div class="container">
-                <div class="row align-items-center justify-content-center text-center">
-                    <div class="col-md-10" data-aos="fade-up">
-                        <h2 class="heading mb-5">Bienvenido <?php echo $_SESSION["nombre_contacto"] ?></h2>
-                        <p class="sub-heading mb-5">Como último paso, debes pagar para finalizar el registro</p>
+                <div class="row section-heading justify-content-center mb-5">
+                    <div class="col-md-8 text-center">
+                        <h2 class="heading mb-3">Bienvenido <?php echo $_SESSION["nombre_contacto"] ?></h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center" data-aos="fade-up">
+                    <div class="col-md-8">
+                        <div class="owl-carousel home-slider-loop-false">
 
-                        <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
-							<input type="hidden" name="cmd" value="_xclick">
-							<input type="hidden" name="business" value="sb-vicwk15327995@business.example.com">
-							<input type="hidden" name="item_name" value="descripcion del pago">
-							<input type="hidden" name="item_number" value="codigo del pago">
-							<input type="hidden" name="amount" value="49.99">
-							<input type="hidden" name="tax" value="0">
-							<input type="hidden" name="quantity" value="1">
-							<input type="hidden" name="currency_code" value="USD">
-							<input type="hidden" name="country" value="PA">
-							<input type="hidden" name="return" value="<?php echo  $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/index.php?c=" . seg::codificar("paypal") . "&m=" . seg::codificar("retorno") ?>">
-							<input type='hidden' name='notify_url' value="<?php echo  $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/index.php?c=" . seg::codificar("paypal") . "&m=" . seg::codificar("registar_notificacion") ?>">
-							<input type='hidden' name='cancel_return' value="<?php echo  $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/index.php?c=" . seg::codificar("paypal") . "&m=" . seg::codificar("cancelar") ?>">
-							<input type="submit" name="submit" value="Pagar $49.99 " class="smoothscroll btn btn-outline-white px-5 py-3">
-						</form>
+                            <div class="item">
+                                <blockquote class="testimonial">
+                                    <p>Como último paso, debes pagar para finalizar el registro</p>
+
+                                    <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST">
+                                        <input type="hidden" name="cmd" value="_xclick">
+                                        <input type="hidden" name="business" value="sb-vicwk15327995@business.example.com">
+                                        <input type="hidden" name="item_name" value="descripcion del pago">
+                                        <input type="hidden" name="item_number" value="codigo del pago">
+                                        <input type="hidden" name="amount" value="49.99">
+                                        <input type="hidden" name="tax" value="0">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="hidden" name="currency_code" value="USD">
+                                        <input type="hidden" name="country" value="PA">
+                                        <input type="hidden" name="return" value="<?php echo  $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/index.php?c=" . seg::codificar("paypal") . "&m=" . seg::codificar("retorno") ?>">
+                                        <input type='hidden' name='notify_url' value="<?php echo  $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/index.php?c=" . seg::codificar("paypal") . "&m=" . seg::codificar("registar_notificacion") ?>">
+                                        <input type='hidden' name='cancel_return' value="<?php echo  $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"] . "/index.php?c=" . seg::codificar("paypal") . "&m=" . seg::codificar("cancelar") ?>">
+                                        <input type="submit" name="submit" value="Pagar $49.99 " class="sub-heading mb-5">
+                                    </form>
+                                </blockquote>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     
     <?php } else { ?>
         <div class="cover_1 overlay bg-slant-white bg-light">
