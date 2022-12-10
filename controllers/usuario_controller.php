@@ -64,6 +64,20 @@
                     $obj->setNombre_restaurante($nombre_empresa);
                     $obj->setCuenta_paypal($cuenta_paypal);
 
+                    $resultado2 = $obj->validar_user();
+                    
+                    if (isset($resultado2)) {
+                        header("location:index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=El usuario ingresado ya existe<br>Elige otro distinto para poder registrarte...");
+                        exit();
+                    }
+
+                    $resultado3 = $obj->validar_mail();
+                    
+                    if (isset($resultado3)) {
+                        header("location:index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=El correo ingresado ya existe<br>Elige otro distinto para poder registrarte...");
+                        exit();
+                    }
+
                     $resultado = $obj->insertar();
 
                     if (isset($resultado)) {

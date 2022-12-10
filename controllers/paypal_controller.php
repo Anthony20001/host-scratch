@@ -6,8 +6,8 @@
 
         public static function registrar_notificacion() {
             //revisado
-            $pago = new paypal_model();
-            $pago->registrar($_POST);
+            // $pagos = new paypal_model();
+            // $pagos->registrar($_POST);
         }
 
         public static function cancelar() {
@@ -17,7 +17,10 @@
 
         public static function retorno() {
             //revisado
-            header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=El pago ha sido registrado con éxito.<br>Inicia sesión para utilizar el servicio");
+            $pagos = new paypal_model();
+            $pagos->registrar();
+            
+            header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=El pago ha sido registrado con éxito.<br>Ve al inicio para utilizar el servicio");
         }
     }
 ?>

@@ -16,5 +16,9 @@
         call_user_func($controlador."_controller::".$metodo);
     }
 
+<<<<<<< HEAD
+    //comentario fabian jeje
+=======
     //Derek Villarreal git test 2018 add
+>>>>>>> master
 ?>
