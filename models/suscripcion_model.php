@@ -1,4 +1,5 @@
 <?php
+    require_once("vendor/autoload.php");
     require_once("utils/bd.php");
 
     class suscripcion_model {

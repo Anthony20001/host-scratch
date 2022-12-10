@@ -17,7 +17,7 @@
                                 <h3 class="mb-4">Horario de atención</h3>
                                 <p>Desde: 7 am a 5 pm. GMT-5 LUN-DOM</p>
                                 <h3 class="mb-4">Contactanos</h3>
-                                <p>+507 2-523-2200 <br>consultas.scrattoficial@gmail.com</p>
+                                <p>+507 223-2200 <br>consultas.scrattoficial@gmail.com</p>
                             </div>
                         </div>
 
@@ -33,10 +33,11 @@
                             </div>
                             <div class="footer-widget">
                                 <h3 class="mb-4">Suscribete</h3>
-                                <form action="#" class="ftco-footer-newsletter">
+                                <form action="<?php echo "index.php?c=" . seg::codificar("suscripcion") . "&m=" . seg::codificar("registrar") ?>" class="ftco-footer-newsletter" method="POST">
                                     <div class="form-group">
                                         <button class="button"><span class="fa fa-envelope"></span></button>
-                                        <input type="email" class="form-control" placeholder="Ingresa tu correo">
+                                        <input type="email" class="form-control" placeholder="Ingresa tu correo" name="txtCorreo">
+                                        <input type="hidden" name="token" value="<?php echo seg::getToken() ?>">
                                     </div>
                                 </form>
                             </div>

@@ -20,7 +20,7 @@
                 require_once("views/template/header.php");
                 require_once("views/template/navbar.php");
                 require_once("views/template/header2.php");
-                //require_once("views/suscripcion/suscrito.php");
+                require_once("views/suscripcion/suscrito.php");
                 require_once("views/template/footer.php");
             }
         } 
