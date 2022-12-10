@@ -109,15 +109,49 @@
 
                 if (hash_equals($password, $r->password)) {
                     return $r;
-                    var_dump($r);
                 
                 } else {
                     return[];
-                    var_dump($r);
                 }
             }
 
             return [];
+        }
+
+        public function validar_user() {
+            //revisado
+            $conexion = bd::connection();
+            $coleccion = $conexion->usuario;
+
+            $usuario = $this->usuario;
+            $resultado = $coleccion->find(["usuario" => $usuario]);
+
+            foreach ($resultado as $r) {
+                if ($usuario === $r->usuario) {
+                    return $r;
+                
+                } else {
+                    return [];
+                }
+            }
+        }
+
+        public function validar_mail() {
+            //revisado
+            $conexion = bd::connection();
+            $coleccion = $conexion->usuario;
+
+            $correo = $this->correo;
+            $resultado = $coleccion->find(["correo" => $correo]);
+
+            foreach ($resultado as $r) {
+                if ($correo === $r->correo) {
+                    return $r;
+                
+                } else {
+                    return [];
+                }
+            }
         }
 
         public function ver_datos() {

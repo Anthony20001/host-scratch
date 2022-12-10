@@ -11,7 +11,7 @@
             $link = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]."/index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("activar")."&s=".$id;
             $mensaje = '<h2>Activación de la cuenta</h2>Estimado usuario,<br><br>Se ha generado un correo de <strong>activación</strong>. Para iniciar sesión, haga clic en <a href="'.$link.'">ACTIVAR</a> para continuar.<br><br><br>Att: Scratt Inc<br>SaaS Sitio Web Oficial';
             
-            echo mail($correo, "Activa tu cuenta de Scratt", $mensaje, $headers);
+            mail($correo, "Activa tu cuenta de Scratt", $mensaje, $headers);
         }
 
         public static function subirArchivo($archivo_temporal, $archivo, $destino) {
