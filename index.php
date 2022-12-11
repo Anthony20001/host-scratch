@@ -15,6 +15,15 @@
         $metodo = seg::decodificar($_GET["m"]);
         call_user_func($controlador."_controller::".$metodo);
     }
+<<<<<<< HEAD
     #hola()
     #hello()
+=======
+
+<<<<<<< HEAD
+    //comentario fabian jeje
+=======
+    //Derek Villarreal git test 2018 add
+>>>>>>> master
+>>>>>>> e6e68933a23fa63fa5f6b10a5f72c6f6ecc14805
 ?>
