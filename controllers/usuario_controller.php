@@ -86,22 +86,19 @@
                 }
 
                 empty($_POST["txtCorreo"])?$error[1] ="Este campo es obligatorio":$correo=$_POST["txtCorreo"];
-
                 $nombre_contacto = $_POST["txtNombre"];
                 $nombre_empresa = $_POST["txtNombreEmpresa"];
-
                 empty($_POST["txtCuentaPaypal"])?$error[2]="Este campo es obligatorio":$cuenta_paypal = $_POST["txtCuentaPaypal"];
 
-                $logo_restaurante = $_POST["imgLogo"];
-                $imagen_fondo = $_POST["imgFondo"];
+                
 
                 if (isset($error)) {
-                    $titulo = "Scratt &mdash; Sitio web oficial | REGISTRO DE USUARIO";
+                    $titulo = "Scratt &mdash; Sitio web oficial | MODIFICAR CUENTA";
 
                     require_once("views/template/header.php");
                     require_once("views/template/navbar.php");
                     require_once("views/template/header2.php");
-                    //require_once("views/usuario/modificar_cuenta.php");
+                    require_once("views/usuario/modificar_cuenta.php");
                     require_once("views/template/footer.php");
 
                 } else {
@@ -109,6 +106,10 @@
                     $nombre_contacto = filter_var($nombre_contacto, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     $nombre_empresa = filter_var($nombre_empresa, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                     $cuenta_paypal = filter_var($cuenta_paypal, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    
+                    $logo_restaurante = utils::subirArchivo($_FILES["imgLogo"]["tmp_name"], $_FILES["imgLogo"]["name"], "uploads");
+                    $imagen_fondo = utils::subirArchivo($_FILES["imgFondo"]["tmp_name"], $_FILES["imgFondo"]["name"], "uploads");
+
                     
                     $obj = new usuario_model();
                     $obj->setId($_SESSION["id_usuario"]);
@@ -166,10 +167,12 @@
             $obj->setId($_SESSION["id_usuario"]);
             $resultados = $obj->ver_datos();
 
+            $titulo = "MODIFICAR CUENTA";
+
             require_once("views/template/header.php");
             require_once("views/template/navbar.php");
             require_once("views/template/header2.php");
-            //require_once("views/usuario/modificar_cuenta.php");
+            require_once("views/usuario/modificar_cuenta.php");
             require_once("views/template/footer.php");
         }
 
@@ -251,6 +254,7 @@
             $objUsuario  = new usuario_model();
             $objUsuario->setId($id_usuario);
             $datos_usuario = $objUsuario->ver_datos();
+
             $nombre_empresa = $datos_usuario["nombre_restaurante"];
             $logo = $datos_usuario["logo_empresa"];
             $imagen_fondo = $datos_usuario["imagen_fondo"];
@@ -265,10 +269,12 @@
             $lista_plato = $objplatos->mostrar_platos();
             foreach ($lista_plato as $p)
                 $listaPlat[] = $p;
+
+            $titulo = "VER MENÚ";
                 
             require_once("views/template/header.php");
             require_once("views/template/header2.php");
-            //require_once("views/usuario/ver_menu.php");
+            require_once("views/usuario/ver_menu.php");
             require_once("views/template/footer.php");
         }
     }
