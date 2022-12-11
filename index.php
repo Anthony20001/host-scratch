@@ -15,7 +15,4 @@
         $metodo = seg::decodificar($_GET["m"]);
         call_user_func($controlador."_controller::".$metodo);
     }
-<<<<<<< HEAD
-=======
 ?>
->>>>>>> usuario
