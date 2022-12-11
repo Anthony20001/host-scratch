@@ -7,20 +7,21 @@
 
         public static function mostrar() {
             //pendiente de revisar
-            if (!isset($_SESSION["id_usuario"])) {
+            /*if (!isset($_SESSION["id_usuario"])) {
                 header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=Se te ha impedido el acceso. Debes iniciar sesión para continuar.");
                 exit();
-            }
+            }*/
 
             $obj = new categoria_plato_model();
             $obj->set_id_usuario($_SESSION["id_usuario"]);
             $resultado = $obj->listar_categorias();
 
-            require_once("views/template/header.php");
+            /*require_once("views/template/header.php");
             require_once("views/template/navbar.php.php");
             require_once("views/template/header2.php.php");
             //require_once("views/categoria_plato/mostrar.php");
-            require_once("views/template/footer.php.php");
+            require_once("views/template/footer.php.php");*/
+            header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("show_panel_user_0"));
         }
 
         public static function registro() {
@@ -54,31 +55,35 @@
             $obj->setId($id);
             $resultado = $obj->buscar_categoria();
 
-            require_once("views/template/header.php");
+            /*require_once("views/template/header.php");
             require_once("views/template/navbar.php.php");
             require_once("views/template/header2.php.php");
             //require_once("views/categoria_plato/modificar.php");
-            require_once("views/template/footer.php.php");
+            require_once("views/template/footer.php.php");*/
+
+            header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("show_panel_user_0")."&msg=Categoría actualizada!");
         }
 
         public static function insertar() {
             //pendiente de revisar
             if ($_POST) {
-                if (!isset($_POST["token"]) || !seg::validarSesion($_POST["token"])) {
+                /*if (!isset($_POST["token"]) || !seg::validarSesion($_POST["token"])) {
                     echo "Acceso restringido";
                     exit();
-                }
+                }*/
 
-                empty($_POST["txtDescripcion"])?$error[0]="Este campo es obligatorio":$descripcion = $_POST["txtDescripcion"];
+                empty($_POST["input_categoria_nombre"])?$error[0]="Este campo es obligatorio":$descripcion = $_POST["input_categoria_nombre"];
 
                 if (isset($error)) {
+                    var_dump($error);
                     $titulo = "Scratt &mdash; Sitio web oficial | REGISTRO DE CATEGORIA";
 
-                    require_once("views/template/header.php");
+                   /* require_once("views/template/header.php");
                     require_once("views/template/navbar.php");
                     require_once("views/template/header2.php");
                     //require_once("views/categoria_plato/registro.php");
-                    require_once("views/template/footer.php");
+                    require_once("views/template/footer.php");*/
+                    header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("show_panel_user_0")."&msg=El campo categoría no puede estar vacío");
                 
                 } else {
                     $descripcion = filter_var($descripcion, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -89,10 +94,10 @@
                     $resultado = $obj->insertar();
 
                     if (isset($resultado)) {
-                        header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=La categoria ha sido registrado con exito");
+                        header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("show_panel_user_0")."&msg=La categoria ha sido registrada con éxito");
 
                     } else {
-                        header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=Algo ha fallado. Intentalo nuevamente");
+                        header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("show_panel_user_0")."&msg=Algo ha fallado. Intentalo nuevamente");
                     }
                 }
             }
@@ -106,7 +111,7 @@
                     exit();
                 }
 
-                empty($_POST["txtDescripcion"])?$error[0]="Este campo es obligatorio":$descripcion = $_POST["txtDescripcion"];
+                empty($_POST["input_categoria_nombre"])?$error[0]="Este campo es obligatorio":$descripcion = $_POST["input_categoria_nombre"];
 
                 $id = $_POST["_id"];
 

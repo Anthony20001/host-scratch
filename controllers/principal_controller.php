@@ -38,5 +38,27 @@
             require_once("views/principal/mensaje.php");
             require_once("views/template/footer.php");
         }
+
+
+        #Vista de los clientes
+        public static function show_panel_user_0(){
+            /*if (!isset($_SESSION["id_usuario"])) {
+                header("location:" . "index.php?c=" . seg::codificar("principal") . "&m=" . seg::codificar("mensaje") . "&msg=Notiene acceso a esta pantalla, debe acceder para continuar");
+                exit();
+            }*/
+
+            $titulo = "Scratt &mdash; Sitio web oficial | PANEL DE USUARIO";
+
+            require_once "views/usuario/user_0_panel/header.php";
+            require_once "views/usuario/user_0_panel/navbar.php";
+            require_once "views/usuario/user_0_panel/home.php";
+            require_once "views/usuario/user_0_panel/categorias/read.php";
+            require_once "views/usuario/user_0_panel/footer.php";
+        }
+
+        #Vista del usuario root
+        public static function show_panel_user_1(){
+            
+        }
     }
 ?>  

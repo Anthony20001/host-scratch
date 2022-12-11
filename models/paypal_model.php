@@ -4,33 +4,56 @@
 
     class paypal_model {
         
-        public function registrar($peticion) {
+        public function registrar() {
             //revisado
+            // $conexion = bd::connection();
+            // $coleccion = $conexion->pagos_paypal;
+
+            // try {
+            //     $resultado = $coleccion->insertOne($peticion);
+            //     $coleccion = $conexion->usuario;
+
+            //     try {
+            //         $resultado = $coleccion->updateOne(
+            //             ["cuenta_paypal" => $_SESSION["cuenta_paypal"]],
+            //             ['$set' => [
+            //                 "monto_pago" => "49.99"
+            //             ]]
+            //         );
+
+            //         $_SESSION["monto_pago"] = $peticion["payment_gross"];
+
+            //         return $resultado->getModifiedCount();
+
+            //     } catch (Exception $e) {
+            //         return 0;
+            //     }
+
+            // } catch (Exception $e) {
+            //     return null;
+            // }
+
+            // $conexion = bd::connection();
+            // $coleccion = $conexion->pagos_paypal;
             $conexion = bd::connection();
-            $coleccion = $conexion->pagos_paypal;
+            $coleccion = $conexion->usuario;
 
             try {
-                $resultado = $coleccion->insertOne($peticion);
-                $coleccion = $conexion->usuario;
+                $cuenta = $_SESSION["cuenta_paypal"];
 
-                try {
-                    $resultado = $coleccion->updateOne(
-                        ["cuenta_paypal" => $peticion["payer_email"]],
-                        ['$set' => [
-                            "monto_pago" => $peticion["payment_gross"]
-                        ]]
-                    );
+                $resultado = $coleccion->updateOne(
+                    ["cuenta_paypal" => $cuenta],
+                    ['$set' => [
+                        "monto_pago" => "49.99"
+                    ]]
+                );
 
-                    $_SESSION["monto_pago"] = $peticion["payment_gross"];
+                $_SESSION["monto_pago"] = 49.99;
 
-                    return $resultado->getModifiedCount();
-
-                } catch (Exception $e) {
-                    return 0;
-                }
+                return $resultado->getModifiedCount();
 
             } catch (Exception $e) {
-                return null;
+                return 0;
             }
         } 
     }

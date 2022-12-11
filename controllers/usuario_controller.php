@@ -35,6 +35,8 @@
                 $nombre_contacto = $_POST["txtNombre"];
                 $nombre_empresa = $_POST["txtNombreEmpresa"];
 
+                #=================================== Img ================================
+
                 empty($_POST["txtCuentaPaypal"])?$error[4]="correo obligatorio":$cuenta_paypal=$_POST["txtCuentaPaypal"];
 
                 if (isset($error)) {
@@ -63,6 +65,22 @@
                     $obj->setNombre_contacto($nombre_contacto);
                     $obj->setNombre_restaurante($nombre_empresa);
                     $obj->setCuenta_paypal($cuenta_paypal);
+                    $obj->setImagen_fondo($imagen_fondo);
+                    $obj->setLogo_empresa($logo_empresa);
+
+                    $resultado2 = $obj->validar_user();
+                    
+                    if (isset($resultado2)) {
+                        header("location:index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=El usuario ingresado ya existe<br>Elige otro distinto para poder registrarte...");
+                        exit();
+                    }
+
+                    $resultado3 = $obj->validar_mail();
+                    
+                    if (isset($resultado3)) {
+                        header("location:index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=El correo ingresado ya existe<br>Elige otro distinto para poder registrarte...");
+                        exit();
+                    }
 
                     $resultado = $obj->insertar();
 
@@ -215,7 +233,10 @@
                     $_SESSION["id_usuario"] = $resultado["_id"];
                     $_SESSION["monto_pago"] = $resultado["monto_pago"];
                     $_SESSION["cuenta_paypal"] = $resultado["cuenta_paypal"];
-
+                    $_SESSION["imagen_fondo"] = $resultado["imagen_fondo"];
+                    $_SESSION["logo_empresa"] = $resultado["logo_empresa"];
+                    $_SESSION["nombre_restaurante"] = $resultado["nombre_restaurante"];
+ 
                     if (isset($_POST["chkRecordar"])) {
                         setcookie(seg::codificar("nombre"),  seg::codificar($resultado["nombre"]), time()+60);
                         setcookie(seg::codificar("usuario"),  seg::codificar($resultado["usuario"]), time()+60);

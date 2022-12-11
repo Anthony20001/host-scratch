@@ -15,6 +15,3 @@
         $metodo = seg::decodificar($_GET["m"]);
         call_user_func($controlador."_controller::".$metodo);
     }
-
-    //Derek Villarreal git test 2018 add
-?>
