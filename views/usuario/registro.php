@@ -63,6 +63,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group col-md-4">
+                            <label for="email" class="label">Cuenta de PayPal</label>
+                            <div class="form-field-icon-wrap">
+                                <input type="email" class="form-control" name="txtCuentaPaypal" value="<?php echo isset($cuenta_paypal)?$cuenta_paypal:"" ?>">
+                                <span style="color: #FF0000"><?php echo isset($error[4])?$error[4]:"" ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="email" class="label">Cuenta de PayPal</label>
+                            <div class="form-field-icon-wrap">
+                                <input type="email" class="form-control" name="txtCuentaPaypal" value="<?php echo isset($cuenta_paypal)?$cuenta_paypal:"" ?>">
+                                <span style="color: #FF0000"><?php echo isset($error[4])?$error[4]:"" ?></span>
+                            </div>
+                        </div>
+
                         <input type="hidden" name="token" value="<?php echo seg::getToken() ?>">
                     </div>
                     <div class="row justify-content-center">
