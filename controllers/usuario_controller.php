@@ -234,15 +234,12 @@
                     $_SESSION["id_usuario"] = $resultado["_id"];
                     $_SESSION["monto_pago"] = $resultado["monto_pago"];
                     $_SESSION["cuenta_paypal"] = $resultado["cuenta_paypal"];
-<<<<<<< HEAD
                     $_SESSION["imagen_fondo"] = $resultado["imagen_fondo"];
                     $_SESSION["logo_empresa"] = $resultado["logo_empresa"];
                     $_SESSION["nombre_restaurante"] = $resultado["nombre_restaurante"];
  
-=======
                     $_SESSION["tipo_usuario"] = $resultado["tipo_usuario"];
 
->>>>>>> usuario
                     if (isset($_POST["chkRecordar"])) {
                         setcookie(seg::codificar("nombre"),  seg::codificar($resultado["nombre"]), time()+60);
                         setcookie(seg::codificar("usuario"),  seg::codificar($resultado["usuario"]), time()+60);
