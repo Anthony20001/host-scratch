@@ -5,9 +5,15 @@
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("login") ?>">Inicia sesión</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("registro") ?>">Registrate</a></li>
+                
+                
+
+
             <?php } else { ?>
                 <li><a href="index.php?">Inicio</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("cerrar_sesion") ?>">Cerrar sesión</a></li>
+                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("ver_menu")."&id=".$_SESSION["id_usuario"] ?>">Ver Menú</a></li>
+                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("modificar_cuenta") ?>">Modificar Cuenta</a></li>
             <?php } ?>
         </ul>
     </div>

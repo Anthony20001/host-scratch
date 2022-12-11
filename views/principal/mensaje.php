@@ -11,7 +11,7 @@
 
                     <div class="item">
                         <blockquote class="testimonial">
-                            <p><?php echo $mensaje ?></p>
+                            <p><?php echo $_GET["msg"] ?></p>
                             <!-- <div class="author">
                                 <img src="images/person_1.jpg" alt="Image placeholder" class="mb-3">
                                 <h4>Maxim Smith</h4>
