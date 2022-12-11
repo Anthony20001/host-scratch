@@ -8,6 +8,8 @@
                 $_SESSION["usuario"] = seg::decodificar($_COOKIE["usuario"]);
             }
 
+            $titulo = "Scratt &mdash; Sitio web oficial | INICIO";
+
             require_once("views/template/header.php");
             require_once("views/template/navbar.php");
             require_once("views/template/header2.php");
