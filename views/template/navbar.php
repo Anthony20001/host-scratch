@@ -14,12 +14,12 @@
 
             <?php } elseif ($_SESSION["tipo_usuario"] == 0){ ?>
                 <li><a href="index.php">Inicio</a></li> <!-- este es el menu de usuario -->
-                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("cerrar_sesion") ?>">Cerrar sesión</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("ver_menu")."&id=".$_SESSION["id_usuario"] ?>">Ver Menú</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("modificar_cuenta") ?>">Categorías</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("modificar_cuenta") ?>">Platos</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("modificar_cuenta") ?>">Modificar Cuenta</a></li>
                 <hr>
+                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("cerrar_sesion") ?>">Cerrar sesión</a></li>
             <?php } ?>
         </ul>
     </div>
