@@ -167,6 +167,21 @@
             return [];
         }
 
+        public function ver_usuarios() {
+            $conexion = bd::connection();
+            $coleccion = $conexion->usuario;
+            $resultado = $coleccion->find(["_id" => new MongoDB\BSON\ObjectId($this->id)]);
+
+            return $resultado;
+        }
+
+        public function ver_suscripciones() {
+            $conexion = bd::connection();
+            $coleccion = $conexion->usuario;
+            $resultado = $coleccion->find(["_id" => new MongoDB\BSON\ObjectId($this->id)]);
+
+            return $resultado;
+        }
         
         public function getId()
         {

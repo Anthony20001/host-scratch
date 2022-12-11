@@ -7,7 +7,7 @@
                 $_SESSION["nombre"] = seg::decodificar($_COOKIE["nombre"]);
                 $_SESSION["usuario"] = seg::decodificar($_COOKIE["usuario"]);
             }
-            
+
             $titulo = "Scratt &mdash; Sitio web oficial | INICIO";
 
             require_once("views/template/header.php");
