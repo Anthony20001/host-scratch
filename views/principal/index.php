@@ -7,6 +7,7 @@
                         <h2 class="heading mb-5">Bienvenido a Scratt, donde los platos hablan por si mismos.</h2>
                         <p class="sub-heading mb-5">Diseña, crea y vende tus platillos favoritos. <a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("registro") ?>"><strong>Registrate</strong></a></p>
                         <p><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("login") ?>" class="smoothscroll btn btn-outline-white px-5 py-3">Inicia sesión</a></p>
+                        <p><a href="<?php echo "index.php?c=".seg::codificar("principal")."&m=".seg::codificar("show_panel_user_0") ?>" class="smoothscroll btn btn-outline-white px-5 py-3">Inicia sesión - Test Anthony</a></p>
                     </div>
                 </div>
             </div>

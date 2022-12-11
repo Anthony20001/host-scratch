@@ -2,22 +2,31 @@
 <!-- Toast msg -->
 <div class="toast align-items-center text-bg-primary border-0 fade mt-5" role="alert" aria-live="assertive" aria-atomic="true" id="toast_msg" style="margin-top: 0; position:absolute;">
   <div class="d-flex">
-    <div class="toast-body">Hello, world! This is a toast message.</div>
+    <div class="toast-body"><?php echo isset($_GET['msg']) ? $_GET['msg'] : "";?></div>
     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
 </div>
 
 <div class="row mt-5 mx-auto">
   <div class="col-11 mx-auto">
-    <form action="" method="post" class="d-block mx-auto w-100">
+    <form action="<?php echo 'index.php?c='.seg::codificar("categoria_plato").'&m='.seg::codificar("mostrar");?>" method="post" class="d-block mx-auto w-100">
       <h4 class="text-center">Seleccione una categoría</h4>
       <select class="form-select w-25 mx-auto border border-dark" aria-label="Default select example">
         <option selected>Open thi</option>
         <option value="1">One</option>
         <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="<?php echo ""?>">Three</option>
+        <?php 
+          if(isset($resultado)){
+            foreach($resultado as $r){ 
+              echo '<option value="'.$r["nombre_categoria"].'">'.$r['nombre_categoria'].'</option>';
+            } 
+          }else{
+            echo "<script>alert('No existe la variable que contiene categorias')</script>";
+          }
+        ?>
       </select>
-      <button type="submir" class="btn btn-outline-dark mt-3 rounded-pill mb-3 w-25 d-block mx-auto"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+      <button type="submit" class="btn btn-outline-dark mt-3 rounded-pill mb-3 w-25 d-block mx-auto"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
 
 
     </form>
@@ -57,7 +66,13 @@
     </div>
 
     <br>
-    <?php require_once "views/user_0_panel/platos/read.php" ?>
+
+    <?php 
+      if(isset($_GET[''])){
+        require_once "views/usuario/user_0_panel/platos/read.php";
+      }
+    ?>
+
   </div>
 </div>
 <br>
@@ -74,7 +89,7 @@
       <div class="modal-body">
         <form action="<?php echo 'index.php?c='.seg::codificar("categoria_plato").'&m='.seg::codificar("insertar");?>" method="post">
           <div class="mb-3">
-            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Ingrese el nombre" name="input_categoria_name">
+            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Ingrese el nombre" name="input_categoria_nombre">
             <div id="textHelp" class="form-text text-warning"><?php echo isset($error[0]) ? $error[0] : ""; ?></div>
             <br>
             <button type="submit" class="btn btn-primary">Crear</button>
@@ -98,9 +113,9 @@
         <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
+        <form action="<?php echo 'index.php?c='.seg::codificar("categoria_plato").'&m='.seg::codificar("modificar");?>" method="post">
           <div class="mb-3">
-            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Nuevo nombre">
+            <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Nuevo nombre" name="input_categoria_nombre">
             <div id="textHelp" class="form-text"></div>
             <br>
             <button type="submit" class="btn btn-primary">Aceptar</button>
@@ -183,10 +198,12 @@
 </div>
 
 
-<!-- <script>
+<?php if(isset($_GET['msg'])){?>
+ <script>
   var toast_msg = document.querySelector("#toast_msg");
   toast_msg.classList.add("show");
   setTimeout(() => {
     toast_msg.classList.remove("show");
-  }, 2000);
-</script> -->
+  }, 3000);
+</script> 
+<?php }?>
