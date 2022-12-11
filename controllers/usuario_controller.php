@@ -8,7 +8,7 @@
     class usuario_controller {
 
         public static function registro() {
-            //revisado
+            //revisadoooo
             $titulo = "Scratt &mdash; Sitio web oficial | REGISTRO";
 
             require_once("views/template/header.php");
