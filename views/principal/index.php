@@ -119,7 +119,30 @@
         </div>
     </div>
 <?php } else { ?>
-    <?php if ($_SESSION["monto_pago"] == 0) { ?>
+    <?php if ($_SESSION["tipo_usuario"] == 1) { ?>
+        <div class="section bg-white" data-aos="fade-up">
+            <div class="container">
+                <div class="row section-heading justify-content-center mb-5">
+                    <div class="col-md-8 text-center">
+                        <h2 class="heading mb-3">Vista de administrador</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center" data-aos="fade-up">
+                    <div class="col-md-8">
+                        <div class="owl-carousel home-slider-loop-false">
+
+                            <div class="item">
+                                <blockquote class="testimonial">
+                                    <p>Esta vista solo la puede ver el administador del sistema.<br>Aqui puedes ver la lista de usuarios y suscripciones</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    
+    <?php } elseif ($_SESSION["monto_pago"] == 0) { ?>
         <div class="section bg-white" data-aos="fade-up">
             <div class="container">
                 <div class="row section-heading justify-content-center mb-5">
@@ -157,7 +180,7 @@
                 </div>
             </div>
         </div> 
-    
+
     <?php } else { ?>
         <div class="cover_1 overlay bg-slant-white bg-light">
             <div class="img_bg" style="background-image: url(images/slider-1.jpg);" data-stellar-background-ratio="0.5">

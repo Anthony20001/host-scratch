@@ -5,8 +5,15 @@
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("login") ?>">Inicia sesión</a></li>
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("registro") ?>">Registrate</a></li>
+
+            <?php } elseif ($_SESSION["tipo_usuario"] == 1) { ?> <!-- este es el menu de administrador -->
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("listar_usuarios") ?>">Ver usuarios</a></li>
+                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("listar_suscripcion") ?>">Ver suscripciones</a></li>
+                <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("cerrar_sesion") ?>">Cerrar sesión</a></li>
+
             <?php } else { ?>
-                <li><a href="index.php?">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li> <!-- este es el menu de usuario -->
                 <li><a href="<?php echo "index.php?c=".seg::codificar("usuario")."&m=".seg::codificar("cerrar_sesion") ?>">Cerrar sesión</a></li>
             <?php } ?>
         </ul>

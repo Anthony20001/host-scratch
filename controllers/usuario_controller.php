@@ -225,10 +225,12 @@
 
                     $_SESSION["nombre_contacto"] =  $resultado["nombre_contacto"];
                     $_SESSION["usuario"] = $resultado["usuario"];
+                    $_SESSION["nombre_restaurante"] = $resultado["nombre_restaurante"];
                     $_SESSION["correo"] = $resultado["correo"];
                     $_SESSION["id_usuario"] = $resultado["_id"];
                     $_SESSION["monto_pago"] = $resultado["monto_pago"];
                     $_SESSION["cuenta_paypal"] = $resultado["cuenta_paypal"];
+                    $_SESSION["tipo_usuario"] = $resultado["tipo_usuario"];
 
                     if (isset($_POST["chkRecordar"])) {
                         setcookie(seg::codificar("nombre"),  seg::codificar($resultado["nombre"]), time()+60);
@@ -283,6 +285,28 @@
             require_once("views/template/header.php");
             require_once("views/template/header2.php");
             //require_once("views/usuario/ver_menu.php");
+            require_once("views/template/footer.php");
+        }
+
+        public static function listar_usuarios() {
+            $resultado = new usuario_model();
+            $resultado->ver_usuarios();
+
+            require_once("views/template/header.php");
+            require_once("views/template/navbar.php");
+            require_once("views/template/header2.php");
+            require_once("views/verdatos/verusuarios.php");
+            require_once("views/template/footer.php");
+        }
+
+        public static function listar_suscripcion() {
+            $resultado = new usuario_model();
+            $resultado->ver_suscripciones();
+
+            require_once("views/template/header.php");
+            require_once("views/template/navbar.php");
+            require_once("views/template/header2.php");
+            require_once("views/verdatos/versuscripciones.php");
             require_once("views/template/footer.php");
         }
     }

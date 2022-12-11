@@ -4,7 +4,7 @@
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-10" data-aos="fade-up">
                     <h2 class="heading mb-5">SUSCRIPCIÓN</h2>
-                    <p><a href="#" class="smoothscroll btn btn-outline-white px-5 py-3">Volver</a></p>
+                    <p><a href="index.php" class="smoothscroll btn btn-outline-white px-5 py-3">Volver</a></p>
                 </div>
             </div>
         </div>
