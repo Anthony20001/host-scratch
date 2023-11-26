@@ -143,7 +143,7 @@
             </div>
         </div>
 
-    <?php } elseif ($_SESSION["monto_pago"] == 0) { ?>
+    <?php } if ($_SESSION["monto_pago"] == 0) { ?>
         <div class="section bg-white" data-aos="fade-up">
             <div class="container">
                 <div class="row section-heading justify-content-center mb-5">
@@ -182,7 +182,7 @@
             </div>
         </div>
 
-    <?php } elseif ($_SESSION["monto_pago"] == 0) { 
+    <?php } if ($_SESSION["tipo_usuario"] == 0 && !empty($_SESSION["monto_pago"])) { 
         require_once "views/template/header_0_options.php";
         } else{
 

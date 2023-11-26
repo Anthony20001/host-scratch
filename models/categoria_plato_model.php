@@ -1,5 +1,6 @@
 <?php
     require_once("utils/bd.php");
+    require_once("vendor/autoload.php");
 
     class categoria_plato_model {
         private $id;

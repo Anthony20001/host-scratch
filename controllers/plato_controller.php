@@ -34,11 +34,16 @@
 
             $obj = new plato_model();
             $obj->set_id_usuario($_SESSION["id_usuario"]);
-            $resultado = $obj->mostrar_platos();
+            $resultados = $obj->mostrar_platos();
 
             require_once("views/template/header.php");
             require_once("views/template/navbar.php");
             require_once("views/template/header2.php.");
+
+            $obj2 = new categoria_plato_model();
+            $obj2->set_id_usuario($_SESSION["id_usuario"]);
+            $categorias = $obj2->listar_categorias();
+
             require_once("views/platos/crud_platos.php");
             require_once("views/template/footer.php");
         }
@@ -59,10 +64,10 @@
             $resultado = $obj->ver_datos();
 
             require_once("views/template/header.php");
-            require_once("views/template/navbar.php.php");
-            require_once("views/template/header2.php.php");
+            require_once("views/template/navbar.php");
+            require_once("views/template/header2.php");
             require_once("views/platos/crud_platos.php");
-            require_once("views/template/footer.php.php");
+            require_once("views/template/footer.php");
         }
 
         public static function insertar() {

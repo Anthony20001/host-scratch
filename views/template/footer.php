@@ -1,6 +1,6 @@
             <!-- <div class="map-wrap" id="map"  data-aos="fade"></div> -->
             
-            <footer class="ftco-footer">
+            <footer class="ftco-footer" style="bottom: auto;">
                 <div class="container">
                     
                     <div class="row">

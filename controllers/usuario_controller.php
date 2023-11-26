@@ -203,7 +203,7 @@
             require_once("views/template/header.php");
             require_once("views/template/navbar.php");
             require_once("views/template/header2.php");
-            //require_once("views/usuario/vercodigoqr.php");
+            require_once("views/usuario/ver_menu.php");
             require_once("views/template/footer.php");
         }
 
@@ -227,19 +227,19 @@
                         exit();
                     }
 
-                    $_SESSION["nombre_contacto"] =  $resultado["nombre_contacto"];
-                    $_SESSION["usuario"] = $resultado["usuario"];
-                    $_SESSION["nombre_restaurante"] = $resultado["nombre_restaurante"];
-                    $_SESSION["correo"] = $resultado["correo"];
-                    $_SESSION["id_usuario"] = $resultado["_id"];
-                    $_SESSION["monto_pago"] = $resultado["monto_pago"];
-                    $_SESSION["cuenta_paypal"] = $resultado["cuenta_paypal"];
-                    $_SESSION["imagen_fondo"] = $resultado["imagen_fondo"];
-                    $_SESSION["logo_empresa"] = $resultado["logo_empresa"];
-                    $_SESSION["nombre_restaurante"] = $resultado["nombre_restaurante"];
- 
-                    $_SESSION["tipo_usuario"] = $resultado["tipo_usuario"];
-
+                    $result = $obj->validar_user();
+                    $_SESSION["nombre_contacto"] =  $result["nombre_contacto"];
+                    $_SESSION["usuario"] = $result["usuario"];
+                    $_SESSION["nombre_restaurante"] = $result["nombre_restaurante"];
+                    $_SESSION["correo"] = $result["correo"];
+                    $_SESSION["id_usuario"] = $result["_id"];
+                    $_SESSION["monto_pago"] = $result["monto_pago"];
+                    $_SESSION["cuenta_paypal"] = $result["cuenta_paypal"];
+                    $_SESSION["imagen_fondo"] = $result["imagen_fondo"];
+                    $_SESSION["logo_empresa"] = $result["logo_empresa"];
+                    $_SESSION["nombre_restaurante"] = $result["nombre_restaurante"];
+                    $_SESSION["tipo_usuario"] = $result["tipo_usuario"];
+                    
                     if (isset($_POST["chkRecordar"])) {
                         setcookie(seg::codificar("nombre"),  seg::codificar($resultado["nombre"]), time()+60);
                         setcookie(seg::codificar("usuario"),  seg::codificar($resultado["usuario"]), time()+60);
@@ -291,6 +291,7 @@
                 $listaPlat[] = $p;
                 
             require_once("views/template/header.php");
+            require_once("views/template/navbar.php");
             require_once("views/template/header2.php");
             //require_once("views/usuario/ver_menu.php");
             require_once("views/template/footer.php");

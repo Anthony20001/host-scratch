@@ -30,7 +30,7 @@
 
         public static function generarQr($url) {
             //pendiente de revisar
-            //require_once("libs/codigo_qr/qrlib.php");
+            require_once("libs/codigo_qr/qrlib.php");
 
             //Declaramos una carpeta temporal para guardar la imágenes generadas
             $dir = 'libs/temp/';
@@ -49,7 +49,7 @@
             $contenido = $url; //Texto
             
             //Enviamos los parámetros a la Función para generar código QR 
-            //QRcode::png($contenido, $filename, $level, $tamaño, $framSize); 
+            QRcode::png($contenido, $filename, $level, $tamaño, $framSize); 
             
             //Mostramos la imagen generada
             return $dir.basename($filename);  

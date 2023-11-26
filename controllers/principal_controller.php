@@ -49,11 +49,11 @@
 
             $titulo = "Scratt &mdash; Sitio web oficial | PANEL DE USUARIO";
 
-            require_once "views/usuario/user_0_panel/header.php";
-            require_once "views/usuario/user_0_panel/navbar.php";
-            require_once "views/usuario/user_0_panel/home.php";
-            require_once "views/usuario/user_0_panel/categorias/read.php";
-            require_once "views/usuario/user_0_panel/footer.php";
+            require_once("views/template/header.php");
+            require_once("views/template/navbar.php");
+            require_once("views/template/header2.php");
+            require_once("views/categoria_platos/crud_categoria.php");
+            require_once("views/template/footer.php");
         }
 
         #Vista del usuario root

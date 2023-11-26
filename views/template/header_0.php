@@ -1,5 +1,5 @@
 <?php
-$logo = isset($_SESSION["imagen_fondo"]) ? 'uploads/' . $_SESSION["imagen_fondo"] : 
+$logo = isset($_SESSION["logo_empresa"]) ? $_SESSION["logo_empresa"] : 
 "https://img.freepik.com/vector-premium/logo-restaurante-retro_23-2148474404.jpg?w=2000";
 
 $nombre_restaurante = isset($_SESSION["nombre_restaurante"]) ? $_SESSION["nombre_restaurante"] : "El montuno";

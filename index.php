@@ -14,5 +14,6 @@
         $controlador = seg::decodificar($_GET["c"]);
         $metodo = seg::decodificar($_GET["m"]);
         call_user_func($controlador."_controller::".$metodo);
+        echo isset($_GET["_id"]) ? var_dump($_GET['_id']) : "";
     }
 ?>

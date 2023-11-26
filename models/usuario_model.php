@@ -36,7 +36,7 @@
                     "nombre_restaurante" => $this->nombre_restaurante,
                     "imagen_fondo" => "",
                     "logo_empresa" => "",
-                    "tipo_usuario" => 2,
+                    "tipo_usuario" => 0,
                     "fech_registro" => date("Y:m:d"),
                     "monto_pago" => 0.00,
                     "status" => 0,

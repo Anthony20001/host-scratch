@@ -29,7 +29,7 @@
             <?php echo $r["fecha_actualizacion"]; ?>
           </td>
           <td>
-            <a class="btn btn-warning" data-bs-target="#exampleModal2" href="<?php echo 'index.php?c='.seg::codificar("plato_categoria").'&m='.seg::codificar("mostrar_modificar").'&_id='.$r['_id']; ?>;">>Editar
+            <a class="btn btn-warning" data-bs-target="#exampleModal2" href="<?php echo 'index.php?c='.seg::codificar("plato_categoria").'&m='.seg::codificar("mostrar_modificar").'&_id='.$r['_id']; ?>">Editar
           </td>
           <td>
             <a class="btn btn-danger" href="<?php echo 'index.php?c='.seg::codificar("plato_categoria").'&m='.seg::codificar("eliminar").'&_id='.$r['_id']; ?>;">Eliminar
@@ -154,12 +154,11 @@
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-dark">
-        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Nueva categoría</h1>
+        <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Nuueva categoría</h1>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?php echo 'index.php?c=' . seg::codificar(" categoria_plato") . '&m=' .
-          seg::codificar("insertar") . '&_id=' ; ?>" method="post">
+        <form action="<?php echo 'index.php?c='.seg::codificar("categoria_plato").'&m='.seg::codificar("insertar");?>" method="post">
           <div class="mb-3">
             <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp"
               placeholder="Ingrese el nombre" name="input_categoria_nombre">
@@ -167,6 +166,7 @@
               <?php echo isset($error[0]) ? $error[0] : ""; ?>
             </div>
             <br>
+            <input type="hidden" name="token" value="<?php echo seg::getToken() ?>">
             <button type="submit" class="btn btn-primary">Crear</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           </div>

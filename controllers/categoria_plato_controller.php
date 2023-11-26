@@ -215,11 +215,13 @@
             $obj->setId($id);
             $resultado = $obj->eliminar();
 
-            if ($resultado > 0) {
-                header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=La categoria ha sido eliminado con exito");
+            if (true) {
+                header("location: index.php?c=".seg::codificar("categoria_plato")."&m=".seg::codificar("mostrar")."&msg=La categoria ha sido eliminado con exito");
 
             } else {
                 header("location: index.php?c=".seg::codificar("principal")."&m=".seg::codificar("mensaje")."&msg=Algo ha fallado. Intentalo nuevamente");
+
+                var_dump($resultado);
             }
         }
     }
